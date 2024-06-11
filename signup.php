@@ -33,6 +33,7 @@
             <label for="password">Password:</label>
             <input type="password" name="password">
         </form>
+        <img src="./Kodee_Assets_Digital_Kodee-sitting.svg" alt="">
     </main>
     <?php 
         if (isset($_GET["redirected"])) {
