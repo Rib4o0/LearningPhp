@@ -4,3 +4,15 @@ body {
     align-items: center;
     height: calc(95vh - 30px);
 }
+
+main > img {
+    width: 500px;
+}
+
+main {
+    display: flex;
+}
+
+main > .main > .title {
+    font-size: 30px;
+}
