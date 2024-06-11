@@ -1,3 +1,5 @@
+<?php 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,5 +33,32 @@
             <input type="password" name="password">
         </form>
     </main>
+    <?php 
+        if (isset($_GET["redirected"])) {
+            if ($_GET["redirected"] == "true") echo '<div class="hello activated right"></div>';
+        } else {
+            echo '<div class="hello"></div>';
+        }
+    ?>
+    <script>
+        const links = document.querySelectorAll("[data-link]");
+        const hello = document.querySelector(".hello")
+
+        links.forEach(link => {
+            link.addEventListener("click", () => {
+                hello.classList.add("activated");
+                setTimeout(() => {
+                    window.location = link.dataset.link + `?redirected=true`;
+                }, 250)
+            })
+        })
+
+        setTimeout(() => {
+            hello.classList.remove("activated");
+            setTimeout(() => {
+                hello.classList.remove("right");
+            },250)
+        },1)
+    </script>
 </body>
 </html>

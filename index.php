@@ -12,10 +12,10 @@
 </head>
 <body>
     <header>
-        <a href="/" class="brand">
+        <div data-link="/" class="brand">
             <img src="https://seeklogo.com/images/K/kotlin-logo-6A9E0484CA-seeklogo.com.png" alt="" class="logo">
             <div class="title">Küizer</div>
-        </a>
+        </div>
         <div class="sections">
             <div class="section">Quizes</div>
             <div class="section">Join</div>
@@ -91,15 +91,32 @@
         </div>
         <img src="./Kodee_Assets_Digital_Kodee-sharing.svg" alt="">
     </footer>
-    <div class="transition"></div>
+    <?php 
+        if (isset($_GET["redirected"])) {
+            if ($_GET["redirected"] == "true") echo '<div class="hello activated right"></div>';
+        } else {
+            echo '<div class="hello"></div>';
+        }
+    ?>
     <script>
         const links = document.querySelectorAll("[data-link]");
+        const hello = document.querySelector(".hello")
 
         links.forEach(link => {
             link.addEventListener("click", () => {
-                window.location = link.dataset.link;
+                hello.classList.add("activated");
+                setTimeout(() => {
+                    window.location = link.dataset.link + `?redirected=true`;
+                }, 250)
             })
         })
+
+        setTimeout(() => {
+            hello.classList.remove("activated");
+            setTimeout(() => {
+                hello.classList.remove("right");
+            },250)
+        },1)
     </script>
 </body>
 </html>

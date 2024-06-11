@@ -72,12 +72,20 @@ header > .sections > .section.selected {
     color: var(--kotlin-blue)
 }
 
-.transition {
-    width: 100vw;
-    height: 93vh;
-    background: white;
+.hello {
+    width: 0vw;
+    height: calc(95vh + 80px);
+    background: linear-gradient(90deg, var(--kotlin-pink), var(--kotlin-purple), var(--kotlin-blue));
     position: fixed;
-    top:0;
-    left:0;
+    top: calc(5vh + 30px);
     z-index: 100;
+    transition: 250ms;
+}
+
+.hello.activated {
+    width: 100vw;
+}
+
+.hello.right {
+    right: 0;
 }
