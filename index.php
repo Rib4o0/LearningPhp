@@ -28,7 +28,61 @@
             <div class="desc">Intuitive. Educational. Fun.</div>
             <a href="/Quizes/" class="started">Get Started</a>
         </div>
-        <img src="/workspaces/LearningPhp/Kodee_Assets_Digital_Kodee-greeting.svg" alt="">
+        <img src="./Kodee_Assets_Digital_Kodee-greeting.svg" alt="">
     </section>
+    <section class="latestQuizes">
+        <div class="title">Lastest Quizes</div>
+        <div class="quizes">
+            <div class="quiz">
+                <img src="https://tourismmedia.italia.it/is/image/mitur/20220127150143-colosseo-roma-lazio-shutterstock-756032350-1?wid=1600&hei=900&fit=constrain,1&fmt=webp" alt="">
+                <div class="text">
+                    <div class="title">Ancient History</div>
+                    <div class="questionAmount">20 questions</div>
+                    <div class="desc">A quiz about the ancient history of Rome.</div>
+                </div>
+                
+            </div>
+            <div class="quiz">
+                <img src="https://ravebonfire.com/wp-content/uploads/2023/08/aditya-chinchure-ZhQCZjr9fHo-unsplash-scaled.jpg" alt="">
+                <div class="text">
+                    <div class="title">The RAVE quiz</div>
+                    <div class="questionAmount">50 questions</div>
+                    <div class="desc">DO THIS QUIZ WHILE AT A RAVE TO HAVE FUN!!!!!!</div>
+                </div>
+            </div>
+            <div class="quiz">
+                <img src="https://tourismmedia.italia.it/is/image/mitur/20220127150143-colosseo-roma-lazio-shutterstock-756032350-1?wid=1600&hei=900&fit=constrain,1&fmt=webp" alt="">
+                <div class="text">
+                    <div class="title">Ancient History</div>
+                    <div class="questionAmount">20 questions</div>
+                    <div class="desc">A quiz about the ancient history of Rome.</div>
+                </div>
+            </div>
+            <div class="quiz">
+                <img src="https://www.wwf.org.uk/sites/default/files/styles/hero_s/public/2023-09/Tropical.jpg?h=790be497&itok=JbFUM0J_" alt="">
+                <div class="text">
+                    <div class="title">The amazon jungle</div>
+                    <div class="questionAmount">10 questions</div>
+                    <div class="desc">Test your knowledge about the amazon jungle with this quick 10 question quiz</div>
+                </div>     
+            </div>
+        </div>
+        <a href="/Quizes" class="more">More</a>
+    </section>
+    <section class="startToday">
+        <div class="title">Start creating quizes today!</div>
+        <a href="/create" class="started">Get Started</a>
+    </section>
+    <footer class="contactUs">
+        <div class="title">Contact us</div>
+        <form action="/contactUs.php" method="post">
+            <label for="email">Email:</label>
+            <input type="email" name="email" class="email">
+            <label for="name">Your name:</label>
+            <input type="text" name="name" class="name">
+            <label for="message">Message:</label>
+            <input type="text" name="message" class="message">
+        </form>
+    </footer>
 </body>
 </html>

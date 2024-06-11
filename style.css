@@ -4,6 +4,9 @@
     --backround: #0f151b;
     --text: #fff;
     --fainted-text: #b3b3bc;
+    --kotlin-blue: rgb(96, 96, 255);
+    --kotlin-purple: rgb(207, 3, 248);
+    --kotlin-pink: rgb(240, 44, 113);
 }
 
 * {
@@ -14,6 +17,8 @@
 body {
     background: var(--backround);
     width: 100vw;
+    position: relative;
+    top: calc(5vh + 30px);
     margin: 0;
     padding: 0;
 }
@@ -25,6 +30,11 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--backround);
+    z-index: 10;
 }
 
 header > .brand > .title {
@@ -54,4 +64,148 @@ header > .sections {
 
 header > .sections > .section {
     color: var(--fainted-text);
+}
+
+section {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2vw;
+}
+
+.intro {
+    height: calc(40vh);
+    margin-top: 30vh;
+}
+
+.intro > img {
+    width: 600px;
+}
+
+.intro > .main > .title {
+    font-size: 64px;
+    font-weight: 500;
+}
+
+.intro > .main > .desc {
+    font-size: 32px;
+    color: var(--fainted-text);
+    margin-bottom: 5vh;
+}
+
+.intro > .main > .started {
+    background: var(--kotlin-blue);
+    text-decoration: none;
+    padding: 15px 30px;
+    border-radius: 50px;
+}
+
+.transition {
+    width: 100vw;
+    height: 5vh;
+    background: linear-gradient(90deg, var(--kotlin-pink), var(--kotlin-purple), var(--kotlin-blue));
+}
+
+.latestQuizes {
+    flex-direction: column;
+    align-items: start;
+    padding: 200px;
+    width: calc(100vw - 400px);
+    height: 50vh;
+}
+
+.quiz {
+    width: 275px;
+    height: 300px;
+    background: #2b2b2b;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.quiz > img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+
+.latestQuizes > .title {
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.latestQuizes > .quizes {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.quiz > .text > .title {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.text {
+    padding: 5px 10px 10px 10px;
+}
+
+.quiz > .text > .questionAmount {
+    color: var(--fainted-text);
+    font-size: 14px;
+}
+
+.latestQuizes > .more {
+    padding: 15px 30px;
+    border: 1px solid var(--fainted-text);
+    border-radius: 50px;
+    text-decoration: none;
+    color: var(--fainted-text);
+}
+
+.startToday {
+    height: 35vh;
+    background: linear-gradient(90deg, var(--kotlin-pink), var(--kotlin-purple), var(--kotlin-blue));
+    flex-direction: column;
+    align-items: start;
+    width: calc(100vw - 400px);
+    padding: 0px 200px;
+}
+
+.startToday > .started {
+    padding: 15px 30px;
+    background: var(--backround);
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 20px;
+}
+
+.startToday > .title {
+    font-size: 36px;
+    font-weight: 600;
+}
+
+.contactUs {
+    width: calc(100vw - 400px);
+    padding: 50px 200px;
+    height: calc(55vh - 100px);
+    flex-direction: column;
+}
+
+.contactUs > form {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contactUs > .title {
+    font-size: 48px;
+}
+
+.contactUs > form > input {
+    background-color: var(--backround);
+    height: 5vh;
+    border: 1px solid #4b4b4b;
 }
