@@ -7,19 +7,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign up</title>
     <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="signup.css">
 </head>
     <header>
-        <a href="/" class="brand">
+        <div data-link="/index.php" class="brand">
             <img src="https://seeklogo.com/images/K/kotlin-logo-6A9E0484CA-seeklogo.com.png" alt="" class="logo">
             <div class="title">Küizer</div>
-        </a>
+        </div>
         <div class="sections">
             <div class="section">Quizes</div>
             <div class="section">Join</div>
             <div class="section">Create</div>
             <div class="section">About</div>
             <div class="section">Login</div>
-            <a href="/signup.php" class="section selected">Sign up</a>
+            <div data-link="/signup.php" class="section selected">Sign up</a>
         </div>
     </header>
     <main>

@@ -12,7 +12,7 @@
 </head>
 <body>
     <header>
-        <div data-link="/" class="brand">
+        <div data-link="/index.php" class="brand">
             <img src="https://seeklogo.com/images/K/kotlin-logo-6A9E0484CA-seeklogo.com.png" alt="" class="logo">
             <div class="title">Küizer</div>
         </div>

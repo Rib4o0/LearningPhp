@@ -21,6 +21,7 @@ body {
     top: calc(5vh + 30px);
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
 
 header {
@@ -69,7 +70,7 @@ header > .sections > .section {
 }
 
 header > .sections > .section.selected {
-    color: var(--kotlin-blue)
+    color: var(--kotlin-blue);
 }
 
 .hello {
@@ -88,4 +89,19 @@ header > .sections > .section.selected {
 
 .hello.right {
     right: 0;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    display: none;
+}
+
+::-webkit-scrollbar-track {
+    width: 5px;
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--kotlin-blue);
+    border-radius: 10px;
 }
