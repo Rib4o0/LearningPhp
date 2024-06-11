@@ -7,6 +7,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kuizer</title>
+    <link rel="stylesheet" href="header.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -20,6 +21,8 @@
             <div class="section">Join</div>
             <div class="section">Create</div>
             <div class="section">About</div>
+            <div class="section">Login</div>
+            <div data-link="/signup.php" class="section">Sign up</a>
         </div>
     </header>
     <section class="intro">
@@ -74,15 +77,29 @@
         <a href="/create" class="started">Get Started</a>
     </section>
     <footer class="contactUs">
-        <div class="title">Contact us</div>
-        <form action="/contactUs.php" method="post">
-            <label for="email">Email:</label>
-            <input type="email" name="email" class="email">
-            <label for="name">Your name:</label>
-            <input type="text" name="name" class="name">
-            <label for="message">Message:</label>
-            <input type="text" name="message" class="message">
-        </form>
+        <div class="main">
+            <div class="title">Contact us</div>
+            <form action="/contactUs.php" method="post">
+                <label for="email">Email:</label>
+                <input type="email" name="email" class="email">
+                <label for="name">Your name:</label>
+                <input type="text" name="name" class="name">
+                <label for="message">Message:</label>
+                <input type="text" name="message" class="message">
+                <button type="submit">Send <3</button>
+            </form>
+        </div>
+        <img src="./Kodee_Assets_Digital_Kodee-sharing.svg" alt="">
     </footer>
+    <div class="transition"></div>
+    <script>
+        const links = document.querySelectorAll("[data-link]");
+
+        links.forEach(link => {
+            link.addEventListener("click", () => {
+                window.location = link.dataset.link;
+            })
+        })
+    </script>
 </body>
 </html>
