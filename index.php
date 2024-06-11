@@ -1,30 +1,34 @@
+<?php 
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LearningPHP</title>
+    <title>Kuizer</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <?php 
-        $username = $_GET["username"];
-        if ($username != "") {
-            header("Location: /loggedin.php?username=$username");
-        }
-        
-    ?>
-    <div class="main">
-        <div class="title">Login form</div>
-        <form action="/prv/formhandler.php" method="post" class="form">
-            <label for="username">Username:</label>
-            <input type="text" required class="username" name="username" placeholder="Example: UserName321">
-            <label for="password">Password:</label>
-            <input type="password" required class="password" name="password" placeholder="Example: Password123">
-            <button type="submit" class="submitbtn">Submit</button>
-        </form>
-    </div>
-
+    <header>
+        <a href="/" class="brand">
+            <img src="https://seeklogo.com/images/K/kotlin-logo-6A9E0484CA-seeklogo.com.png" alt="" class="logo">
+            <div class="title">Küizer</div>
+        </a>
+        <div class="sections">
+            <div class="section">Quizes</div>
+            <div class="section">Join</div>
+            <div class="section">Create</div>
+            <div class="section">About</div>
+        </div>
+    </header>
+    <section class="intro">
+        <div class="main">
+            <div class="title">Küizer</div>
+            <div class="desc">Intuitive. Educational. Fun.</div>
+            <a href="/Quizes/" class="started">Get Started</a>
+        </div>
+        <img src="/workspaces/LearningPhp/Kodee_Assets_Digital_Kodee-greeting.svg" alt="">
+    </section>
 </body>
 </html>
