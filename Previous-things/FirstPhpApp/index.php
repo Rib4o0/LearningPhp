@@ -9,15 +9,15 @@
 <body>
 
     <?php 
-        $username = $_GET["username"];
-        if ($username != "") {
+        if (isset($_GET["username"])) {
+            $username = $_GET["username"];
             header("Location: /loggedin.php?username=$username");
         }
         
     ?>
     <div class="main">
         <div class="title">Login form</div>
-        <form action="/prv/formhandler.php" method="post" class="form">
+        <form action=<?php echo "./prv/formhandler.php" ?> method="post" class="form">
             <label for="username">Username:</label>
             <input type="text" required class="username" name="username" placeholder="Example: UserName321">
             <label for="password">Password:</label>

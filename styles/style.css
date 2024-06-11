@@ -30,6 +30,7 @@ section {
     background: var(--kotlin-blue);
     text-decoration: none;
     padding: 15px 30px;
+    width: max-content;
     border-radius: 50px;
 }
 

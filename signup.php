@@ -6,9 +6,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign up</title>
-    <link rel="stylesheet" href="header.css">
-    <link rel="stylesheet" href="signup.css">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/signup.css">
 </head>
+<body>
     <header>
         <div data-link="/index.php" class="brand">
             <img src="https://seeklogo.com/images/K/kotlin-logo-6A9E0484CA-seeklogo.com.png" alt="" class="logo">
@@ -33,9 +34,10 @@
                 <input type="email" name="email">
                 <label for="password">Password:</label>
                 <input type="password" name="password">
+                <button type="submit" class="submit">Sign up</button>
             </form>
         </div>
-        <img src="./Kodee_Assets_Digital_Kodee-sitting.svg" alt="">
+        <img src="assets/Kodee_Assets_Digital_Kodee-sitting.svg" alt="">
     </main>
     <?php 
         if (isset($_GET["redirected"])) {
