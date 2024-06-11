@@ -1,0 +1,50 @@
+body {
+    display: flex;
+    /*justify-content: center;*/
+    /*align-items: center;*/
+    height: calc(95vh - 30px);
+}
+
+main > img {
+    width: 500px;
+}
+
+main {
+    width: 70vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+main > .main {
+    width: calc(100% - 500px);
+}
+
+main > .main > .title {
+    font-size: 36px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+main > .main > form {
+    display: flex;
+    flex-direction: column;
+}
+
+main > .main > form > input {
+    height: 3vh;
+    margin-block: 10px;
+    background-color: var(--backround);
+    border: 1px solid #4b4b4b;
+}
+
+main > .main > form > button {
+    width: 120px;
+    padding: 10px 30px;
+    border-radius: 60px;
+    background: var(--kotlin-blue);
+    border: none;
+}
