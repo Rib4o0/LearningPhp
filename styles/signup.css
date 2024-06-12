@@ -48,3 +48,8 @@ main > .main > form > button {
     background: var(--kotlin-blue);
     border: none;
 }
+
+.error {
+    margin-top: 10px;
+    color: red;
+}

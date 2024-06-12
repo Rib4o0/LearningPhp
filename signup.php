@@ -26,8 +26,8 @@
     </header>
     <main>
         <div class="main">
-        <div class="title">Sign up</div>
-            <form action="" method="post">
+            <div class="title">Sign up</div>
+            <form action="/prv/signup.php" method="post">
                 <label for="name">Your name:</label>
                 <input type="text" name="name">
                 <label for="email">Email:</label>
@@ -36,6 +36,14 @@
                 <input type="password" name="password">
                 <button type="submit" class="submit">Sign up</button>
             </form>
+            <?php 
+                if (isset($_GET["error"])) {
+                    $error = $_GET["error"];
+                    if ($error == "emptyFields") {
+                        echo '<div class="error">Please fill in all fields</div>';
+                    }
+                }
+            ?>
         </div>
         <img src="assets/Kodee_Assets_Digital_Kodee-sitting.svg" alt="">
     </main>
