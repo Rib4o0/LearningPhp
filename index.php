@@ -17,11 +17,12 @@
         <div class="title">Küizer</div>
     </div>
     <div class="sections">
-        <div class="section">Quizes</div>
-        <div class="section">Join</div>
-        <div class="section">Create</div>
-        <div class="section">About</div>
-        <div class="section">Login</div>
+        <div data-link="/quizes/" class="section">Quizes</div>
+        <div data-link="/join/" class="section">Join</div>
+        <div data-link="/host/" class="section">Host</div>
+        <div data-link="/create/" class="section">Create</div>
+        <div data-link="/about/" class="section">About</div>
+        <div data-link="/login.php" class="section">Login</div>
         <div data-link="/signup.php" class="section">Sign up</a>
         </div>
 </header>

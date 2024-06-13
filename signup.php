@@ -7,23 +7,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign up</title>
     <link rel="stylesheet" href="styles/header.css">
-    <link rel="stylesheet" href="styles/signup.css">
+    <link rel="stylesheet" href="styles/login-signup.css">
 </head>
 <body>
-    <header>
-        <div data-link="/index.php" class="brand">
-            <img src="https://seeklogo.com/images/K/kotlin-logo-6A9E0484CA-seeklogo.com.png" alt="" class="logo">
-            <div class="title">Küizer</div>
+<header>
+    <div data-link="/index.php" class="brand">
+        <img src="https://seeklogo.com/images/K/kotlin-logo-6A9E0484CA-seeklogo.com.png" alt="" class="logo">
+        <div class="title">Küizer</div>
+    </div>
+    <div class="sections">
+        <div data-link="/quizes/" class="section">Quizes</div>
+        <div data-link="/join/" class="section">Join</div>
+        <div data-link="/host/" class="section">Host</div>
+        <div data-link="/create/" class="section">Create</div>
+        <div data-link="/about/" class="section">About</div>
+        <div data-link="/login.php" class="section">Login</div>
+        <div data-link="/signup.php" class="section selected">Sign up</a>
         </div>
-        <div class="sections">
-            <div class="section">Quizes</div>
-            <div class="section">Join</div>
-            <div class="section">Create</div>
-            <div class="section">About</div>
-            <div class="section">Login</div>
-            <div data-link="/signup.php" class="section selected">Sign up</a>
-        </div>
-    </header>
+</header>
     <main>
         <div class="main">
             <div class="title">Sign up</div>
@@ -41,6 +42,8 @@
                     $error = $_GET["error"];
                     if ($error == "emptyFields") {
                         echo '<div class="error">Please fill in all fields</div>';
+                    } else if ($error == "emailExists") {
+                        echo '<div class="error">Email already exists</div>';
                     }
                 }
             ?>
