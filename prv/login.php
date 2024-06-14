@@ -4,10 +4,7 @@ $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = $_POST["email"];
-    $password = $_POST["password"];
-
-    if (empty($email) || empty($password)) {
+    if (empty($_POST["email"]) || empty($_POST["password"])) {
         header("Location: /login.php?error=emptyFields");
         exit();
     }
@@ -31,9 +28,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->bindParam(':email', $_POST['email']);
         $stmt->execute();
 
-        $row = $stmt->fetchColumn();
+        $password = $stmt->fetchColumn();
 
-        echo $row;
+        if ($password != $_POST['password']) {
+            header("Location: /login.php?error=invalidCredentials");
+        } else {
+            $sql = "SELECT name FROM users WHERE email = :email";
+            $stmt = $db->prepare($sql);
+            $stmt->bindParam(':email', $_POST['email']);
+            $stmt->execute();
+
+            $name = $stmt->fetchColumn();
+
+            setcookie("sessionId", );
+            header("Location: /home/");
+        }
     }
 } else {
     header("Location: /login.php");
