@@ -25,7 +25,6 @@
         </div>
 </header>
 <section class="welcome">
-    <?php ?>
 </section>
 </body>
 </html>

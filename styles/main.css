@@ -12,7 +12,8 @@ section {
 }
 
 .intro > img {
-    width: 600px;
+    width: 40vw;
+    max-width: 600px;
 }
 
 .intro > .main > .title {
@@ -41,16 +42,15 @@ section {
 }
 
 .latestQuizes {
-    flex-direction: column;
-    align-items: start;
-    padding: 200px;
-    width: calc(100vw - 400px);
-    height: 50vh;
+    width: calc(100% - 40px);
+    height: 500px;
+    padding: 0 20px;
 }
 
 .quiz {
-    width: calc((100vw - 440px) / 4);
+    /*width: calc((100vw - 440px) / 4);*/
     height: 300px;
+    width: 250px;
     background: #2b2b2b;
     border-radius: 10px;
     overflow: hidden;
@@ -63,20 +63,22 @@ section {
     object-fit: cover;
 }
 
-.latestQuizes > .title {
+.latestQuizes > .wrapper > .title {
     font-size: 24px;
     font-weight: 500;
+    margin-bottom: 10px;
 }
 
-.latestQuizes > .quizes {
+.latestQuizes > .wrapper > .quizes {
     display: flex;
-    width: 100%;
+    gap: 10px;
     justify-content: space-between;
 }
 
 .quiz > .text > .title {
     font-size: 20px;
     font-weight: 500;
+
 }
 
 .text {
@@ -88,11 +90,13 @@ section {
     font-size: 14px;
 }
 
-.latestQuizes > .more {
+.latestQuizes > .wrapper > .more {
     padding: 15px 30px;
     border: 1px solid var(--fainted-text);
     border-radius: 50px;
     text-decoration: none;
+    margin-top: 10px;
+    width: min-content;
     color: var(--fainted-text);
 }
 
@@ -123,6 +127,7 @@ section {
     padding: 50px 200px;
     height: calc(55vh - 100px);
     display: flex;
+    align-items: center;
 }
 
 .contactUs > .main > form {
@@ -144,7 +149,8 @@ section {
 }
 
 .contactUs > img {
-    width: 600px;
+    max-width: 600px;
+    width: 25vw;
 }
 
 .contactUs > .main {
@@ -153,9 +159,51 @@ section {
 
 .contactUs > .main > form > button {
     padding: 10px 20px;
-    width: 7vw;
+    width: max-content;
     border-radius: 50px;
     background: var(--backround);
     border: 1px solid #4b4b4b;
     margin-top: 5px;
+}
+
+@media (max-width: 1100px) {
+    .quiz:last-child {
+        display: none;
+    }
+
+    .contactUs > img {
+        display: none;
+    }
+
+    .contactUs {
+        width: calc(100vw - 100px);
+        padding: 50px;
+    }
+}
+
+@media (max-width: 900px) {
+    .quiz:nth-last-child(2) {
+        display: none;
+    }
+
+    .intro {
+        flex-direction: column;
+        margin-bottom: 50px;
+    }
+
+    .intro > img {
+        width: 70vw;
+        max-width: 500px;
+    }
+
+    .startToday {
+        width: calc(100vw - 100px);
+        padding: 0 50px;
+    }
+}
+
+@media (max-width: 600px) {
+    .quiz:nth-last-child(3) {
+        display: none;
+    }
 }

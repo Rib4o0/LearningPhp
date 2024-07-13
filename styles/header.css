@@ -2,6 +2,7 @@
 
 :root {
     --backround: #0f151b;
+    /*121213*/
     --text: #fff;
     --fainted-text: #b3b3bc;
     --kotlin-blue: rgb(96, 96, 255);
@@ -19,6 +20,7 @@ body {
     width: 100vw;
     position: relative;
     top: calc(5vh + 30px);
+    height: calc(95vh - 30px);
     margin: 0;
     padding: 0;
     overflow-x: hidden;
@@ -61,6 +63,7 @@ header > .brand > .logo {
 header > .sections {
     display: flex;
     gap: 2vw;
+    transition: none;
 }
 
 header > .sections > .section {
@@ -93,7 +96,6 @@ header > .sections > .section.selected {
 
 ::-webkit-scrollbar {
     width: 5px;
-    display: none;
 }
 
 ::-webkit-scrollbar-track {
@@ -104,4 +106,50 @@ header > .sections > .section.selected {
 ::-webkit-scrollbar-thumb {
     background: var(--kotlin-blue);
     border-radius: 10px;
+}
+
+header > i {
+    position: absolute;
+    font-size: 20px;
+    right: 100%;
+    transform: translateX(-100%);
+}
+
+.loggedInAs {
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    opacity: 0.6;
+}
+
+@media (max-width: 800px) {
+    .sections {
+        position: absolute;
+        top: calc(5vh + 30px);
+        opacity: 0;
+        width: calc(100% - 80px);
+        padding: 10px 40px;
+        display: flex;
+        justify-content: center;
+        left: 0;
+        background: #090c10;
+        transition: all 250ms;
+    }
+
+    header > i {
+        position: relative;
+        right: 0;
+        transform: translateX(0);
+    }
+
+    header.dropdown > .sections {
+        opacity: 1;
+        transition: all 250ms;
+    }
+}
+
+@media (max-width: 460px) {
+    .sections {
+        flex-direction: column;
+    }
 }

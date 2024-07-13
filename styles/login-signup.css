@@ -32,13 +32,39 @@ main > .main > .title {
 main > .main > form {
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
-main > .main > form > input {
+main > .main > form > input, main > .main > form > div > input {
     height: 3vh;
     margin-block: 10px;
-    background-color: var(--backround);
+    background-color: #0f151b;
     border: 1px solid #4b4b4b;
+    outline: none;
+}
+
+input:focus {
+    outline: none;
+}
+
+form > div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+form > div > button {
+    width: 30px;
+    height: 3vh;
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    right: 5px;
+}
+
+form > div > input {
+    width: 100%;
 }
 
 main > .main > form > button {

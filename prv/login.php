@@ -5,22 +5,24 @@ $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($_POST["email"]) || empty($_POST["password"])) {
-        header("Location: /login.php?error=emptyFields");
+        header("Location: /Login/index.php?error=emptyFields");
         exit();
     }
 
-    $sql = "SELECT COUNT(*) FROM users WHERE email = :email";
-
+    $rand = rand(100000,999999);
+    $sql = "UPDATE users SET sessionID = $rand WHERE email = :email";
     $stmt = $db->prepare($sql);
-
     $stmt->bindParam(':email', $_POST['email']);
-
     $stmt->execute();
 
+    $sql = "SELECT COUNT(*) FROM users WHERE email = :email";
+    $stmt = $db->prepare($sql);
+    $stmt->bindParam(':email', $_POST['email']);
+    $stmt->execute();
     $count = $stmt->fetchColumn();
 
     if ($count < 1) {
-        header("Location: /login.php?error=invalidCredentials");
+        header("Location: /Login/index.php?error=invalidCredentials");
         exit();
     } else {
         $sql = "SELECT password FROM users WHERE email = :email";
@@ -30,20 +32,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $password = $stmt->fetchColumn();
 
-        if ($password != $_POST['password']) {
-            header("Location: /login.php?error=invalidCredentials");
+        if ($password !== $_POST['password']) {
+            header("Location: /Login/index.php?error=invalidCredentials");
         } else {
-            $sql = "SELECT name FROM users WHERE email = :email";
-            $stmt = $db->prepare($sql);
-            $stmt->bindParam(':email', $_POST['email']);
-            $stmt->execute();
+            session_start();
 
-            $name = $stmt->fetchColumn();
+            $_SESSION["session_id"] = $rand;
 
-            setcookie("sessionId", );
             header("Location: /home/");
+            session_write_close();
+            exit();
         }
     }
 } else {
-    header("Location: /login.php");
+    header("Location: /Login/index.php");
 }
