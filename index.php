@@ -1,6 +1,7 @@
 <?php
-    include './prv/loader.php';
-    echo loadTop('main', "home", true);
+include './prv/loader.php';
+session_start();
+echo loadTop('main', "home", true);
 ?>
 <section class="intro">
     <div class="main">
@@ -70,8 +71,14 @@
     </div>
     <img src="assets/Kodee_Assets_Digital_Kodee-sharing.svg" alt="">
 </footer>
-
 <?php
+if (isset($_GET["error"])) {
+    $error = $_GET["error"];
+    echo "<div class='error show'>$error</div>";
+} else {
+    echo "<div class='error'></div>";
+}
+
 if (isset($_GET["redirected"])) {
     if ($_GET["redirected"] == "true") echo "<div class=\"hello activated right\"></div>";
 } else {

@@ -8,7 +8,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST["password"];
 
     if ( empty($name) || empty($email) || empty($password)) {
-        header("Location: /Signup/index.php?error=emptyFields");
+        header("Location: /Signup/index.php?inputError=emptyFields");
         exit();
     }
 
@@ -23,7 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $count = $stmt->fetchColumn();
 
     if ($count > 0) {
-        header("Location: /Signup/index.php?error=emailExists");
+        header("Location: /Signup/index.php?inputError=emailExists");
         exit();
     }
 

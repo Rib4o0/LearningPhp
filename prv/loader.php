@@ -15,47 +15,68 @@ function loadHeader($currentSection = "none") : string {
     </header>";
 
     $sections = [
-        ["name" => "Quizzes", "selected" => false],
-        ["name" => "Join", "selected" => false],
-        ["name" => "Host", "selected" => false],
-        ["name" => "Create", "selected" => false],
-        ["name" => "About", "selected" => false],
-        ["name" => "Login", "selected" => false],
-        ["name" => "Signup", "selected" => false],
+        ["name" => "Quizzes", "selected" => 1],
+        ["name" => "Join", "selected" => 1],
+        ["name" => "Host", "selected" => 1],
+        ["name" => "Create", "selected" => 1],
+        ["name" => "About", "selected" => 1],
+        ["name" => "Login", "selected" => 1],
+        ["name" => "Signup", "selected" => 1],
     ];
     switch ($currentSection) {
         case "quizzes":
-            $sections[0]["selected"] = true;
+            $sections[0]["selected"] = 2;
             break;
             case "join":
-                $sections[1]["selected"] = true;
+                $sections[1]["selected"] = 2;
                 break;
                 case "host":
-                    $sections[2]["selected"] = true;
+                    $sections[2]["selected"] = 2;
                     break;
                     case "create":
-                        $sections[3]["selected"] = true;
+                        $sections[3]["selected"] = 2;
                         break;
                         case "about":
-                            $sections[4]["selected"] = true;
+                            $sections[4]["selected"] = 2;
                             break;
                             case "login":
-                                $sections[5]["selected"] = true;
+                                $sections[5]["selected"] = 2;
                                 break;
                                 case "signup":
-                                    $sections[6]["selected"] = true;
+                                    $sections[6]["selected"] = 2;
                                     break;
         default:
             break;
+    }
+    if (session_status() == PHP_SESSION_ACTIVE) {
+        if (isset($_SESSION['session_id'])) {
+            $sections[5]["selected"] = 3;
+            $sections[6]["selected"] = 4;
+        } else {
+            if ($currentSection !== "login" && $currentSection !== "signup" && $currentSection !== "home") {
+                header("Location: /?error=You%20have%20to%20be%20logged%20in%20to%20access%20this%20page&redirected=true");
+                exit();
+            }
+        }
+    } else {
+        if ($currentSection !== "login" && $currentSection !== "signup" && $currentSection !== "home") {
+            header("Location: /?error=You%20have%20to%20be%20logged%20in%20to%20access%20this%20page&redirected=true");
+            exit();
+        }
     }
 
     $sectionsHTML = "";
     foreach ($sections as $section) {
         $name = $section["name"];
-        if ($section["selected"]) {
+        if ($section["selected"] === 2) {
             $sectionsHTML .= "<div data-link='/$name/' class='section selected'>$name</div>";
-        } else {
+        } else if ($section["selected"] === 1) {
             $sectionsHTML .= "<div data-link='/$name/' class='section'>$name</div>";
+        } else if ($section["selected"] === 3) {
+            $sectionsHTML .= "<div class='section'>Settings</div>";
+        } else if ($section["selected"] === 4) {
+            $username = $_SESSION["name"];
+            $sectionsHTML .= "<div class='loggedInAs'>Logged in as $username</div>";
         }
     }
     return $topSkeleton . $sectionsHTML . $bottomSkeleton;

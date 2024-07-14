@@ -1,7 +1,8 @@
 const links = document.querySelectorAll("[data-link]");
 const hello = document.querySelector(".hello");
 const dropdown = document.querySelector(".dropdown");
-const header = document.querySelector("header")
+const header = document.querySelector("header");
+const error = document.querySelector(".error")
 
 links.forEach(link => {
     link.addEventListener("click", () => {
@@ -17,6 +18,9 @@ setTimeout(() => {
     setTimeout(() => {
         hello.classList.remove("right");
     },250)
+    setTimeout(() => {
+        error.classList.remove("show");
+    },3250)
 },1)
 
 dropdown.addEventListener("click", () => {

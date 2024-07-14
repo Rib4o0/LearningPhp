@@ -79,3 +79,18 @@ main > .main > form > button {
     margin-top: 10px;
     color: red;
 }
+
+@media (max-width: 600px) {
+    main {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    main > .main {
+        width: calc(100% - 0px);
+    }
+
+    main > img {
+        width: 300px;
+    }
+}

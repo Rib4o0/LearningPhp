@@ -16,8 +16,8 @@
                 <button type="submit" class="submit">Sign up</button>
             </form>
             <?php
-            if (isset($_GET["error"])) {
-                $error = $_GET["error"];
+            if (isset($_GET["inputError"])) {
+                $error = $_GET["inputError"];
                 if ($error == "emptyFields") {
                     echo '<div class="error">Please fill in all fields</div>';
                 } else if ($error == "invalidCredentials") {
