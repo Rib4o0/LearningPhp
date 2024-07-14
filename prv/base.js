@@ -30,3 +30,13 @@ dropdown.addEventListener("click", () => {
         header.classList.remove("dropdown")
     }
 })
+
+// lightMode()
+
+function lightMode() {
+    console.log("UR MOTHER IS GAY")
+    document.documentElement.style.setProperty('--backround', '#fafaff');
+    document.documentElement.style.setProperty('--fainted-background', '#e0e0ff');
+    document.documentElement.style.setProperty('--secondary-background', '#cdcde4');
+    document.documentElement.style.setProperty('--text', '#000');
+}

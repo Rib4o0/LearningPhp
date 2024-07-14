@@ -4,8 +4,9 @@ session_start();
 echo loadTop("create","create");
 ?>
 <main>
-    <div class="questions">
-        <div class="question">
+    <div class="quizNavAndSettings">
+        <div class="questions">
+        <div class="question selected">
             <div class="text">
                 1. How long is the nile river
             </div>
@@ -58,6 +59,14 @@ echo loadTop("create","create");
                 3. How did the human race evolve
             </div>
             <button class="remove"><i class="fa-solid fa-trash"></i></button>
+        </div>
+    </div>
+        <div class="quizSettings">
+            <input type="text" class="titleInput" placeholder="Name your quiz">
+            <div class="actions">
+                <button class="publish">Publish</button>
+                <button class="exit">Exit</button>
+            </div>
         </div>
     </div>
     <div class="questionEditor">

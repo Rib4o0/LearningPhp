@@ -6,8 +6,10 @@ const imgPreview = document.querySelector(".preview");
 const useImgBtn = document.querySelector(".use");
 const questionImg = document.querySelector(".questionImg");
 const questions = document.querySelector(".questions");
+const answers = document.querySelectorAll(".answer")
+const questionText = document.querySelector(".questionText")
 
-let questionsObject = [
+let questionsArray = [
     {question: "What's eminem's real name?", imageUrl: "https://th.bing.com/th/id/R.cb801f5286963c2ed5c119778827ea4a?rik=iTQYjIz5CJir7w&pid=ImgRaw&r=0", answers: [
             {answer: "Marshall the third", correct: false},
             {answer: "I love Mathers", correct: false},
@@ -22,7 +24,9 @@ let questionsObject = [
             {answer: "2000", correct: false},
         ]
     },
-]
+];
+
+let selectedQuestion = 0;
 
 addImgBtn.addEventListener("click", () => {
     imgModal.classList.add("show");
@@ -64,6 +68,8 @@ imgUrlInput.addEventListener("input", e => {
 useImgBtn.addEventListener("click", () => {
     if (isImgValid) {
         questionImg.setAttribute("src", url);
+        questionsArray[selectedQuestion].imageUrl = url;
+        updateAllQuestionsList()
         isImgSet = true;
     }
 })
@@ -75,14 +81,16 @@ function truncateString(str, maxLength) {
     return str;
 }
 
+loadQuestionContent(selectedQuestion);
 updateAllQuestionsList()
 
 function updateAllQuestionsList() {
     questions.innerHTML = "";
-    for (let i = 0; i < questionsObject.length; i++) {
-        const question = questionsObject[i];
+    for (let i = 0; i < questionsArray.length; i++) {
+        const question = questionsArray[i];
         const container = document.createElement("div");
         container.classList.add("question");
+        if (selectedQuestion === i) container.classList.add("selected")
         questions.append(container);
         const questionText = document.createElement("div");
         questionText.classList.add("text");
@@ -99,9 +107,44 @@ function updateAllQuestionsList() {
         removeBtn.classList.add("remove");
         removeBtn.innerHTML = "<i class=\"fa-solid fa-trash\"></i>";
         container.append(removeBtn)
+
+        container.addEventListener("click", () => {
+            selectedQuestion = i;
+            updateAllQuestionsList();
+            loadQuestionContent(i);
+        })
     }
     const addQuestionBtn = document.createElement("button");
     addQuestionBtn.classList.add("addQuestion");
     addQuestionBtn.textContent = "Add Question"
     questions.append(addQuestionBtn);
 }
+
+function loadQuestionContent(index) {
+    let question = questionsArray[index];
+    questionText.value = question.question;
+    if (question.imageUrl !== "") questionImg.src = question.imageUrl;
+    else questionImg.src = "/assets/empty.jpg"
+    answers.forEach((answer, index) => {
+        const answerText = answer.querySelector("[type='text']");
+        answerText.value = question.answers[index].answer;
+        const checkBox =  answer.querySelector("[type='checkbox']");
+        checkBox.checked = question.answers[index].correct;
+    })
+}
+
+answers.forEach((answer, index) => {
+    const answerText = answer.querySelector("[type='text']");
+    answerText.addEventListener("input", e => {
+        questionsArray[selectedQuestion].answers[index].answer = e.target.value;
+    })
+    const checkBox =  answer.querySelector("[type='checkbox']");
+    checkBox.addEventListener("input", () => {
+        questionsArray[selectedQuestion].answers[index].correct = checkBox.checked;
+    })
+})
+
+questionText.addEventListener("input", e => {
+    questionsArray[selectedQuestion].question = e.target.value;
+    updateAllQuestionsList()
+})
